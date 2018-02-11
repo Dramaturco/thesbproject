@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
 		playerBody.velocity = new Vector2 (Input.GetAxis ("Horizontal") * playerSpeed, playerBody.velocity.y);
 	}
 	void limitSpeed(){
-		Debug.Log (this + " speed: " + playerBody.velocity.magnitude);
+		//Debug.Log (this + " speed: " + playerBody.velocity.magnitude);
 		if (playerBody) {
 			if (playerBody.velocity.magnitude > maxSpeed) {
 				playerBody.velocity = playerBody.velocity.normalized * maxSpeed;

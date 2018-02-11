@@ -5,9 +5,15 @@ using UnityEngine;
 public class PlaneBehaviour : MonoBehaviour {
 	private bool facingLeft = true;
 	public float speed = 0.5f;
+
 	// Use this for initialization
 	void Start () {
-		if (Random.value < 0.5) {
+
+	}
+	void Awake() {
+		//if the plane spawns on the left side of the screen it should face right
+		Debug.Log(this + "spawned at: " + this.transform.position);
+		if (this.transform.position.x < 0) {
 			flip ();
 		}
 	}
