@@ -5,29 +5,27 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	public float playerSpeed = 0.5f;
 	public float maxSpeed = 20.0f;
+	private Rigidbody2D playerBody;
 
 	// Use this for initialization
 	void Start () {
-		
+		playerBody = this.GetComponentInChildren<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = movePlayer (this.transform.position);
-		Rigidbody2D playerBody = this.GetComponentInChildren<Rigidbody2D> ();
-		limitSpeed (playerBody);
+		
+		movePlayer ();
+		limitSpeed ();
 	}
-	Vector3 movePlayer(Vector3 initPos){
-		Vector3 newPos = initPos;
-		newPos.x += Input.GetAxis ("Horizontal") * playerSpeed;
-		newPos.y += Input.GetAxis ("Vertical") * playerSpeed;
-		return newPos;
+	void movePlayer(){
+		playerBody.velocity = new Vector2 (Input.GetAxis ("Horizontal") * playerSpeed, playerBody.velocity.y);
 	}
-	void limitSpeed(Rigidbody2D body){
-		Debug.Log (this + " speed: " + body.velocity.magnitude);
-		if (body) {
-			if (body.velocity.magnitude > maxSpeed) {
-				body.velocity = body.velocity.normalized * maxSpeed;
+	void limitSpeed(){
+		Debug.Log (this + " speed: " + playerBody.velocity.magnitude);
+		if (playerBody) {
+			if (playerBody.velocity.magnitude > maxSpeed) {
+				playerBody.velocity = playerBody.velocity.normalized * maxSpeed;
 			}
 		}
 	}	
