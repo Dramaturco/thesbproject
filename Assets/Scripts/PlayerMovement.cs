@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float playerSpeed = 0.5f;
+	public float speedScaleFactor = 1.0f;
+	public float airSpeed = 2.0f;
+	public float groundSpeed = 5.0f;
 	public float maxSpeed = 20.0f;
 	private Rigidbody2D playerBody;
 
@@ -19,6 +21,14 @@ public class PlayerMovement : MonoBehaviour {
 		limitSpeed ();
 	}
 	void movePlayer(){
+		float playerSpeed = 0.0f;
+		//check if player touches ground
+		if (this.isGrounded()) {
+			playerSpeed = groundSpeed * speedScaleFactor;
+		} else {
+			playerSpeed = airSpeed * speedScaleFactor;
+		}
+		//apply speed to rigidbody
 		playerBody.velocity = new Vector2 (Input.GetAxis ("Horizontal") * playerSpeed, playerBody.velocity.y);
 	}
 	void limitSpeed(){
@@ -28,5 +38,11 @@ public class PlayerMovement : MonoBehaviour {
 				playerBody.velocity = playerBody.velocity.normalized * maxSpeed;
 			}
 		}
-	}	
+	}
+	bool isGrounded(){
+		if (Mathf.Abs (playerBody.velocity.y) < 0.01) {
+			return true;
+		}
+		return false;
+	}
 }
