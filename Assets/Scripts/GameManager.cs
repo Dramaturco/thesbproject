@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			spawnPos.x = getRightScreenEdge ();
 		}
-		spawnPos.y -= 20f;
+		spawnPos.y -= 30f;
 		return spawnPos;
 	}
 	float getLeftScreenEdge(){
