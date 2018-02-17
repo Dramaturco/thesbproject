@@ -36,3 +36,10 @@ sysinfo.txt
 *.unitypackage
 
 .DS_Store
+
+# JetBrains
+.idea/
+# Exclude the whole folder until we use plugins
+Assets/Plugins/*
+Assets/Plugins.meta
+# Assets/Plugins/Editor/JetBrains
