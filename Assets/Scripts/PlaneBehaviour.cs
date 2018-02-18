@@ -13,7 +13,7 @@ public class PlaneBehaviour : MonoBehaviour {
 	}
 	void Awake() {
 		//if the plane spawns on the left side of the screen it should face right
-		Debug.Log(this + "spawned at: " + this.transform.position);
+		//Debug.Log(this + "spawned at: " + this.transform.position);
 		if (this.transform.position.x < 0) {
 			flip ();
 		}
