@@ -11,7 +11,7 @@ public class CameraBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float minY = 500f;
+		float minY = 500f; //topmost position in the game world
 		foreach (GameObject player in players) {
 			float playerY = player.transform.position.y;
 			if (playerY < minY) {

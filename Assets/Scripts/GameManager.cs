@@ -13,11 +13,5 @@ public class GameManager : MonoBehaviour {
 		camera = Camera.main;
 	}
 
-	float getLeftScreenEdge(){
-		return camera.ScreenToWorldPoint (new Vector3(0, 0, 10.0f)).x;
-	}
-	
-	float getRightScreenEdge(){
-		return camera.ScreenToWorldPoint (new Vector3(camera.pixelWidth, 0, 10.0f)).x;
-	}
+
 }
