@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour {
 	public int 	 playerJumpBoostLimit = 30;		//indicates how many frames you can hold the button to boost the jump
 	private Rigidbody2D playerBody;
 	private bool jumping = false;
-	private int jumpFrames = 0;
-    private float temp;
+	private int jumpFrameCounter = 0;
+    private float jumpSwapVariable = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -40,22 +40,25 @@ public class PlayerMovement : MonoBehaviour {
                 jumping = true;
             }
             else{
-                temp = maxSpeed;
+                jumpSwapVariable = maxSpeed;
                 maxSpeed = umbrellaOpenSpeed;
             }
 		}
 		if (Input.GetButtonUp ("Jump")) {
-			jumpFrames = 0;
+			jumpFrameCounter = 0;
 			jumping = false;
-            maxSpeed = temp;
+			if (jumpSwapVariable != 0.0f) {
+				maxSpeed = jumpSwapVariable;
+				jumpSwapVariable = 0.0f;
+			}
 		}
-		if (jumping && jumpFrames < playerJumpBoostLimit) {
-			jumpFrames++;
+		if (jumping && jumpFrameCounter < playerJumpBoostLimit) {
+			jumpFrameCounter++;
 			jump ();
 		}
 	}
 	void jump(){
-		float diminisher = (jumpFrames + 1);
+		float diminisher = (jumpFrameCounter + 1);
 		playerBody.AddForce (Vector2.up * playerJumpPower / diminisher);
 	}
 	void limitSpeed(){

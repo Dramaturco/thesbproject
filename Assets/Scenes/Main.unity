@@ -692,6 +692,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114611380857230938, guid: 42c5a946b34e0431598d8e194b09ed5d,
+        type: 2}
+      propertyPath: playerJumpBoostLimit
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114611380857230938, guid: 42c5a946b34e0431598d8e194b09ed5d,
+        type: 2}
+      propertyPath: groundSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114611380857230938, guid: 42c5a946b34e0431598d8e194b09ed5d,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114611380857230938, guid: 42c5a946b34e0431598d8e194b09ed5d,
+        type: 2}
+      propertyPath: umbrellaOpenSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114611380857230938, guid: 42c5a946b34e0431598d8e194b09ed5d,
+        type: 2}
+      propertyPath: playerJumpPower
+      value: 1200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42c5a946b34e0431598d8e194b09ed5d, type: 2}
   m_IsPrefabParent: 0
