@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 		playerBody.AddForce (Vector2.up * playerJumpPower / diminisher);
 	}
 	void limitSpeed(){
-		Debug.Log (this + " speed: " + playerBody.velocity.magnitude);
+		//Debug.Log (this + " speed: " + playerBody.velocity.magnitude);
 		if (playerBody) {
 			if (playerBody.velocity.magnitude > maxSpeed) {
 				playerBody.velocity = playerBody.velocity.normalized * maxSpeed;
