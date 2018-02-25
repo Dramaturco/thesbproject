@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
     public float secondsTillStart = 3f;
     public float secondsTillRepeat = 1f;
+    public bool backgroundObject = false;                 //for parallax effect on spawned background objects
     
     void Awake() {
         centeredBounds = bounds/2;
